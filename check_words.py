@@ -86,10 +86,3 @@ while(True):
     check_content_words()
     time.sleep(60 * 10) #10分間隔
         
-    
-
-
-
-
-
-
