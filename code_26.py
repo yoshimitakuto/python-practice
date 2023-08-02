@@ -24,5 +24,36 @@ def outline_area(a, b):
     
 outline_area(3, 1)
 
-""
-print('＝＝＝＝関数内関数＝＝＝＝')
+"デコレータ"
+print('＝＝＝＝デコレータ＝＝＝＝')
+
+print('＝＝＝＝デコレータ（無使用）＝＝＝＝')
+def info(func):
+    def wrapper(a, b):
+        print('start')
+        func(a, b)
+        print('finish')
+    return wrapper
+
+def add(a, b):
+    print(a + b)
+    
+add_result = info(add)
+add_result(1, 2)
+add_result(2, 4)
+
+print('＝＝＝＝デコレータ（使用）＝＝＝＝')
+
+def deko(f):
+    def w(c, d):
+        print('start')
+        f(c, d)
+        print('finish')
+    return w
+
+@deko #デコレータ（関数aにdekoの関数の処理を追加することができるもの）
+def a(c, d):
+    print(c + d)
+    
+a(1, 4)
+a(2, 5)
