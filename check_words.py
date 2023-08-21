@@ -1,6 +1,7 @@
 # clomedriverインストール済み
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
 import time
 # import pandas as pd
 
@@ -75,6 +76,7 @@ def check_content_words():
             # a_tag = third_td.find("a")
             index_element = browser.find_element(by=By.XPATH, value="/html/body/main/div/div[3]/table/tbody/tr[1]/td[3]/a")
             index_element.click()
+            Alert(browser).accept()
             time.sleep(2)
             print('不適切な投稿を自動的に削除しました')       
         else:
@@ -84,5 +86,5 @@ def check_content_words():
 while(True):
     print('投稿内容をチェック')
     check_content_words()
-    time.sleep(60 * 10) #10分間隔
+    time.sleep(60 * 5) #5分間隔
         
